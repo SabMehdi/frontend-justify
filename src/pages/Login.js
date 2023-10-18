@@ -1,13 +1,15 @@
 import React from 'react'
 
 const Login = () => {
-  return (
-    <div>
-        <input type='text' name='username' placeholder='Enter username'> </input>
-        <input type='password' name='password' placeholder='Enter password'> </input>
-        <input type='submit'/>
-    </div>
-  )
+    return (
+        <div>
+            <form>
+                <input type='text' name='username' placeholder='Enter username'/>
+                <input type='password' name='password' placeholder='Enter password'/>
+                <input type='submit' />
+            </form>
+        </div>
+    )
 }
 
 export default Login
