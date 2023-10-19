@@ -5,7 +5,8 @@ import { Home } from './pages/Home';
 import Login from './pages/Login';
 import Header from './components/Header';
 import { AuthProvider } from './context/AuthContext';
-import Register from './pages/Register';
+import Register from './pages/Signup';
+import Signup from './pages/Signup';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Routes>
             <Route Component={Home} path="/" exact />
             <Route Component={Login} path="/login" />
-            <Route Component={Register} path="/register" />
+            <Route Component={Signup} path="/Signup" />
           </Routes>
         </AuthProvider>
       </Router>

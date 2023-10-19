@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 
-const Register = () => {
+const Signup = () => {
     const { registerUser, successMessage, errorMessage } = useContext(AuthContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -24,10 +24,10 @@ const Register = () => {
             <form onSubmit={handleRegister}>
                 <input
                     type="email"
-                    name="username"
-                    placeholder="Enter username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    name="email"
+                    placeholder="Enter email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     type="text"
@@ -56,4 +56,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Signup;
