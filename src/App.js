@@ -7,6 +7,7 @@ import Header from './components/Header';
 import { AuthProvider } from './context/AuthContext';
 import Register from './pages/Signup';
 import Signup from './pages/Signup';
+import { PrivateRoute } from './components/PrivateRoute';
 
 function App() {
   return (
@@ -15,9 +16,12 @@ function App() {
         <AuthProvider>
           <Header />
           <Routes>
-            <Route Component={Home} path="/" exact />
-            <Route Component={Login} path="/login" />
-            <Route Component={Signup} path="/Signup" />
+          <Route element={<Login/>} path="/login" />
+            <Route
+              element={<PrivateRoute><Home /></PrivateRoute>}
+              path="/" exact
+            />
+            <Route element={<Signup/>} path="/Signup" />
           </Routes>
         </AuthProvider>
       </Router>
