@@ -5,10 +5,10 @@ import { Home } from './pages/Home';
 import Login from './pages/Login';
 import Header from './components/Header';
 import { AuthProvider } from './context/AuthContext';
-import Register from './pages/Signup';
 import Signup from './pages/Signup';
-import { PrivateRoute } from './components/PrivateRoute';
-
+import { PrivateRoute } from './utils/PrivateRoute';
+import Justify from './pages/Justify';
+import JustifyTextComponent from './pages/Justify';
 function App() {
   return (
     <div className="App">
@@ -22,6 +22,7 @@ function App() {
               path="/" exact
             />
             <Route element={<Signup/>} path="/Signup" />
+            <Route element={<JustifyTextComponent/>} path="/justify" />
           </Routes>
         </AuthProvider>
       </Router>
