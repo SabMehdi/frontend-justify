@@ -5,7 +5,7 @@ const JustifyTextComponent = () => {
     const [inputText, setInputText] = useState('');
     const [justifiedText, setJustifiedText] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const handleInputChange = (e) => {
         setInputText(e.target.value);
     };
@@ -17,7 +17,7 @@ const JustifyTextComponent = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain',
-                'Authorization':'token '+ user.token, // Replace with your actual authentication token
+                'Authorization': 'token ' + user.token, // Replace with your actual authentication token
             },
             body: JSON.stringify({ text: inputText }),
         })
@@ -31,7 +31,8 @@ const JustifyTextComponent = () => {
                 }
             })
             .then((data) => {
-                setJustifiedText(data.justified_text);
+                console.log(data)
+                setJustifiedText(JSON.parse(data.justified_text).text);
                 setErrorMessage('');
             })
             .catch((error) => {
@@ -52,12 +53,20 @@ const JustifyTextComponent = () => {
             />
             <button onClick={handleJustifyText}>Justify Text</button>
             {errorMessage && <p>{errorMessage}</p>}
-            {justifiedText && (
-                <div>
-                    <h3>Justified Text:</h3>
-                    <p>{justifiedText}</p>
-                </div>
-            )}
+            <div>
+                {justifiedText && (
+                    <div>
+                        <h3>Justified Text:</h3>
+                        <textarea
+                            rows="10"
+                            cols="40"
+                            value={justifiedText}
+                            readOnly
+                        // You can use the `readOnly` attribute to make the textarea read-only
+                        />
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
