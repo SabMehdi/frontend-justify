@@ -14,7 +14,7 @@ const JustifyTextComponent = () => {
     
     const handleJustifyText = () => {
         console.log(user.token)
-        fetch(url2, {
+        fetch(url1, {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain',
