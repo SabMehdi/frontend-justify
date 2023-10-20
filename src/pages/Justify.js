@@ -31,7 +31,7 @@ const JustifyTextComponent = () => {
                 }
             })
             .then((data) => {
-                console.log(data)
+                console.log(data.justified_text)
                 setJustifiedText(JSON.parse(data.justified_text).text);
                 setErrorMessage('');
             })
@@ -50,7 +50,10 @@ const JustifyTextComponent = () => {
                 value={inputText}
                 onChange={handleInputChange}
                 placeholder="Enter text to justify"
+                style={{ height: '50vh', width: '80vw' }} // Adjust these values as needed
+
             />
+            <br/>
             <button onClick={handleJustifyText}>Justify Text</button>
             {errorMessage && <p>{errorMessage}</p>}
             <div>
@@ -62,6 +65,8 @@ const JustifyTextComponent = () => {
                             cols="40"
                             value={justifiedText}
                             readOnly
+                            style={{ height: '50vh', width: '80vw' }} // Adjust these values as needed
+
                         // You can use the `readOnly` attribute to make the textarea read-only
                         />
                     </div>
