@@ -16,13 +16,14 @@ function App() {
         <AuthProvider>
           <Header />
           <Routes>
-          <Route element={<Login/>} path="/login" />
-            <Route
-              element={<PrivateRoute><Home /></PrivateRoute>}
-              path="/" exact
+            <Route element={<Login />} path="/login" />
+            <Route element={
+            <PrivateRoute> 
+              <JustifyTextComponent />
+            </PrivateRoute>} path="/justify" 
             />
-            <Route element={<Signup/>} path="/Signup" />
-            <Route element={<JustifyTextComponent/>} path="/justify" />
+            <Route path='/' element={<Home />} exact />
+            <Route element={<Signup />} path="/Signup" />
           </Routes>
         </AuthProvider>
       </Router>

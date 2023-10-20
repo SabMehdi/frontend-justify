@@ -14,6 +14,8 @@ const Header = () => {
                         <span> Welcome, {user.username}!</span>
                         <span> | </span>
                         <span onClick={logOut}> Logout</span>
+                        <span> | </span>
+                        <Link to="/justify">Justify text</Link>
                     </span>
 
                 ) :

@@ -11,13 +11,12 @@ const JustifyTextComponent = () => {
     };
 
     const handleJustifyText = () => {
-        // Make an HTTP POST request to the Django backend
         console.log(user.token)
         fetch('http://127.0.0.1:8000/justify/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain',
-                'Authorization': 'token ' + user.token, // Replace with your actual authentication token
+                'Authorization': 'token ' + user.token, 
             },
             body: JSON.stringify({ text: inputText }),
         })
@@ -50,7 +49,7 @@ const JustifyTextComponent = () => {
                 value={inputText}
                 onChange={handleInputChange}
                 placeholder="Enter text to justify"
-                style={{ height: '50vh', width: '80vw' }} // Adjust these values as needed
+                style={{ height: '50vh', width: '80vw' }} 
 
             />
             <br/>
@@ -65,9 +64,7 @@ const JustifyTextComponent = () => {
                             cols="40"
                             value={justifiedText}
                             readOnly
-                            style={{ height: '50vh', width: '80vw' }} // Adjust these values as needed
-
-                        // You can use the `readOnly` attribute to make the textarea read-only
+                            style={{ height: '50vh', width: '80vw' }} 
                         />
                     </div>
                 )}

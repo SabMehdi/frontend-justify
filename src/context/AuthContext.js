@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
             const data = JSON.parse(storedData)
             setAuthTokens(data.authTokens)
             setUser(data)
+        //    console.log("authcontext: "+ data.email)
         }
     }, []);
 
@@ -39,7 +40,7 @@ export const AuthProvider = ({ children }) => {
                 setAuthTokens(data.token);
                 setUserData(data)
                 localStorage.setItem('authTokens', JSON.stringify(data))
-                navigate('/')
+                navigate('/justify')
             } else {
             }
         } catch (error) {
@@ -65,6 +66,7 @@ export const AuthProvider = ({ children }) => {
                 alert("Registration successful!")
                 navigate('/')
             } else {
+                
                 alert("Registration failed. Please try again.");
             }
         } catch (error) {
