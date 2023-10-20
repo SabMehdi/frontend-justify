@@ -9,10 +9,12 @@ const JustifyTextComponent = () => {
     const handleInputChange = (e) => {
         setInputText(e.target.value);
     };
-
+    const url1='https://sabermehdi.pythonanywhere.com/justify'
+    const url2='http://127.0.0.1:8000/justify/'
+    
     const handleJustifyText = () => {
         console.log(user.token)
-        fetch('http://127.0.0.1:8000/justify/', {
+        fetch(url2, {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain',

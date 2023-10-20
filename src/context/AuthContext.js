@@ -8,7 +8,8 @@ export default AuthContext;
 export const AuthProvider = ({ children }) => {
     const [authTokens, setAuthTokens] = useState(null);
     const [user, setUser] = useState(null)
-
+    const url1="https://sabermehdi.pythonanywhere.com"
+    const url2="http://127.0.0.1:8000"
     const setUserData = (userData) => {
         setUser(userData)
     }
@@ -27,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
     const loginUser = async (email, password) => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/login", {
+            const response = await fetch(url1+"/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export const AuthProvider = ({ children }) => {
 
     const registerUser = async (email, username, password) => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/signup", {
+            const response = await fetch(url1+"/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
