@@ -24,8 +24,6 @@ const JustifyTextComponent = () => {
         })
             .then((response) => {
                 if (response.status === 200) {
-                    console.log(response.json())
-
                     return response.json();
                 } else if (response.status === 402) {
                     throw new Error('Payment Required');
@@ -34,6 +32,7 @@ const JustifyTextComponent = () => {
                 }
             })
             .then((data) => {
+                console.log(JSON.parse(data.justified_text).text)
                 setJustifiedText(JSON.parse(data.justified_text).text);
                 setErrorMessage('');
             })
