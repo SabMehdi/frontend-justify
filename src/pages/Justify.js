@@ -18,7 +18,7 @@ const JustifyTextComponent = () => {
         if (inputText) {
             console.log("Text being sent to the server:", inputText);
     
-            fetch(url2, {
+            fetch(url1, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'text/plain',
