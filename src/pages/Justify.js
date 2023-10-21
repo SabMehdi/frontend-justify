@@ -21,7 +21,7 @@ const JustifyTextComponent = () => {
                 'Content-Type': 'text/plain',
                 'Authorization': 'token ' + user.token, 
             },
-            body: JSON.stringify({ text: inputText }),
+            body: JSON.stringify({ text: String(inputText) }),
         })
             .then((response) => {
                 if (response.status === 200) {
