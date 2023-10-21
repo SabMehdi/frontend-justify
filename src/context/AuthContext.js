@@ -22,7 +22,6 @@ export const AuthProvider = ({ children }) => {
             const data = JSON.parse(storedData)
             setAuthTokens(data.authTokens)
             setUser(data)
-        //    console.log("authcontext: "+ data.email)
         }
     }, []);
 

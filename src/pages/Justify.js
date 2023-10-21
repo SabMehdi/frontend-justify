@@ -13,19 +13,21 @@ const JustifyTextComponent = () => {
     const url2='http://127.0.0.1:8000/justify/'
     
     const handleJustifyText = () => {
-        console.log(user.token)
-        console.log(inputText)
-        fetch(url1, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'text/plain',
-                'Authorization': 'token ' + user.token, 
-            },
-            body: JSON.stringify({ text: String(inputText) }),
-        })
+        console.log(user.token);
+    
+        if (inputText) {
+            console.log("Text being sent to the server:", inputText);
+    
+            fetch(url2, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain',
+                    'Authorization': 'token ' + user.token, 
+                },
+                body: JSON.stringify({ text: inputText }),
+            })
             .then((response) => {
                 if (response.status === 200) {
-                    console.log("response",response.json())
                     return response.json();
                 } else if (response.status === 402) {
                     throw new Error('Payment Required');
@@ -34,16 +36,19 @@ const JustifyTextComponent = () => {
                 }
             })
             .then((data) => {
-                console.log("data",data)
-                setJustifiedText(JSON.parse(data.justified_text).text);
+                console.log(data.justified_text);
+                setJustifiedText(data.justified_text); // Only set the justifiedText state here
                 setErrorMessage('');
             })
             .catch((error) => {
                 setErrorMessage(error.message);
                 setJustifiedText('');
             });
+        } else {
+            console.error("Input text is not defined or is empty");
+        }
     };
-
+    
     return (
         <div>
             <h2>Text Justification</h2>
