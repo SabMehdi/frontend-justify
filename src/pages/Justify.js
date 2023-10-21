@@ -14,7 +14,6 @@ const JustifyTextComponent = () => {
     
     const handleJustifyText = () => {
         
-        console.log(inputText)
         fetch(url1, {
             method: 'POST',
             headers: {
@@ -25,6 +24,8 @@ const JustifyTextComponent = () => {
         })
             .then((response) => {
                 if (response.status === 200) {
+                    console.log(response.json())
+
                     return response.json();
                 } else if (response.status === 402) {
                     throw new Error('Payment Required');
