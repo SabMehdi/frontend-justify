@@ -21,10 +21,11 @@ const JustifyTextComponent = () => {
                 'Content-Type': 'text/plain',
                 'Authorization': 'token ' + user.token, 
             },
-            body: JSON.stringify({ text: inputText }),
+            body: JSON.stringify({ text: String(inputText) }),
         })
             .then((response) => {
                 if (response.status === 200) {
+                    console.log("response",response.json())
                     return response.json();
                 } else if (response.status === 402) {
                     throw new Error('Payment Required');
@@ -33,7 +34,7 @@ const JustifyTextComponent = () => {
                 }
             })
             .then((data) => {
-                console.log(data.justified_text)
+                console.log("data",data)
                 setJustifiedText(JSON.parse(data.justified_text).text);
                 setErrorMessage('');
             })
