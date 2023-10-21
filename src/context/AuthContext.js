@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
             } else {
             }
         } catch (error) {
-            console.error("Login error:", error);
+            alert("Login error:", error);
         }
     };
 

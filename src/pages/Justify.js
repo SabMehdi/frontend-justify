@@ -13,7 +13,8 @@ const JustifyTextComponent = () => {
     const url2='http://127.0.0.1:8000/justify/'
     
     const handleJustifyText = () => {
-        console.log(user.token)
+        
+        console.log(inputText)
         fetch(url1, {
             method: 'POST',
             headers: {
@@ -32,7 +33,6 @@ const JustifyTextComponent = () => {
                 }
             })
             .then((data) => {
-                console.log(data.justified_text)
                 setJustifiedText(JSON.parse(data.justified_text).text);
                 setErrorMessage('');
             })
